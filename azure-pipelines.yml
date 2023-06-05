@@ -24,10 +24,6 @@ steps:
 - script: |
     npm install
   displayName: 'npm install'
-
-- script: |
-    npm run build
-  displayName: 'npm build'
   
 - script: |
     npm run test
@@ -36,7 +32,11 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: '**/test-results*.xml'
+    testResultsFiles: '**/test-report*.xml'
+
+- script: |
+    npm run build
+  displayName: 'npm build'
 
 - task: CopyFiles@2
   inputs:
