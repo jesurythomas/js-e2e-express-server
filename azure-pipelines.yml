@@ -15,6 +15,7 @@ strategy:
       node_version: 16.x
 
 steps:
+
 - task: NodeTool@0
   inputs:
     versionSpec: $(node_version)
@@ -30,7 +31,12 @@ steps:
   
 - script: |
     npm run test
-  displayName: 'npm build'
+  displayName: 'npm test'
+  
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/test-results*.xml'
 
 - task: CopyFiles@2
   inputs:
