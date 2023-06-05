@@ -24,19 +24,18 @@ steps:
 - script: |
     npm install
   displayName: 'npm install'
+  
+- script: |
+    npm run test
+  displayName: 'npm coverage'
+  
+- task: PublishCodeCoverageResults@2
+  inputs:
+    summaryFileLocation: '**/cobertura-coverage.xml'
 
 - script: |
     npm run build
   displayName: 'npm build'
-  
-- script: |
-    npm run test
-  displayName: 'npm test'
-  
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'JUnit'
-    testResultsFiles: '**/test-results*.xml'
 
 - task: CopyFiles@2
   inputs:
@@ -52,4 +51,5 @@ steps:
     artifactName: e2e-server
     targetPath: '$(Build.ArtifactStagingDirectory)'
     publishLocation: 'pipeline'
+
   displayName: 'Publish npm artifact'
