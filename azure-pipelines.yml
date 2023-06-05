@@ -27,6 +27,10 @@ steps:
 - script: |
     npm run build
   displayName: 'npm build'
+  
+- script: |
+    npm run test
+  displayName: 'npm build'
 
 - task: CopyFiles@2
   inputs:
