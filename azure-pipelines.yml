@@ -26,8 +26,8 @@ steps:
   displayName: 'npm install'
   
 - script: |
-    npm run test
-  displayName: 'npm coverage'
+    npm run coverage
+  displayName: 'npm test'
   
 - task: PublishCodeCoverageResults@2
   inputs:
