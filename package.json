@@ -12,6 +12,7 @@
     "start": "node src/index.js",
     "start:dev": "npm run lint && nodemon --exec node src/index.js --unhandled-rejections=warn",
     "test": "jest --ci --reporters=default --reporters=jest-junit",
+    "coverage": "jest --coverage --coverageReporters=cobertura",
     "lint": "eslint src/**/*.js --fix"
   },
   "repository": {
