@@ -32,7 +32,7 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: '**/test-report.xml'
+    testResultsFiles: '**/junit.xml'
 
 - script: |
     npm run build
