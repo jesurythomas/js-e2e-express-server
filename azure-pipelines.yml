@@ -31,7 +31,7 @@ steps:
   
 - task: PublishCodeCoverageResults@2
   inputs:
-    summaryFileLocation: '$(Agent.BuildDirectory)/**/cobertura-coverage.xml'
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml'
 
 - script: |
     npm run build
